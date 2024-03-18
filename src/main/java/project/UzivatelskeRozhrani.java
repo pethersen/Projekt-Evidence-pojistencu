@@ -13,9 +13,21 @@ public class UzivatelskeRozhrani {
     //přidá pojištěnce do databáze
     public void pridejPojistence() {
         System.out.println("Zadejte jméno:");
-        String jmeno = scanner.nextLine().trim();
+        String jmeno = "";
+        while(jmeno.equals("")) {
+            jmeno = scanner.nextLine().trim();
+            if (jmeno.equals("")) {
+                System.out.println("Jméno nezadáno. Zadejte jméno");
+            }
+        }
         System.out.println("Zadejte příjmení:");
-        String prijmeni = scanner.nextLine().trim();
+        String prijmeni = "";
+        while(prijmeni.equals("")) {
+            prijmeni = scanner.nextLine().trim();
+         if (prijmeni.equals("")) {
+             System.out.println("Příjmení nezadáno. Zadejte příjmení");
+         }
+        }
         System.out.println("Zadejte věk:");
         boolean jeSpravne = false;
         int vek = 0;
@@ -28,10 +40,18 @@ public class UzivatelskeRozhrani {
             }
         }
         System.out.println("Zadejte telefonní číslo:");
-        String telefonniCislo = scanner.nextLine().trim();
+        String telefonniCislo = "";
+        while(telefonniCislo.equals("")) {
+            telefonniCislo = scanner.nextLine().trim();
+            if (telefonniCislo.equals("")) {
+                System.out.println("Telefonní číslo nezadáno. Zadejte telefonní číslo");
+            }
+        }
         evidence.pridejPojistence(jmeno, prijmeni, vek, telefonniCislo);
         System.out.println("Nový pojištěnec byl přidán do evidence");
     }
+
+    //vypíše pojištěnce v databázi
     public void vypisPojistence() {
         ArrayList<Pojistenec> pojistenci = evidence.getPojistenci();
         if (pojistenci.size() > 0) {
@@ -43,6 +63,8 @@ public class UzivatelskeRozhrani {
             System.out.println("Evidence je prázdná");
         }
     }
+
+    //vyhledá a zobrazí pojištěnce
     public void vyhledejPojistence() {
         System.out.println("Zadejte jméno:");
         String jmeno = scanner.nextLine().trim();
