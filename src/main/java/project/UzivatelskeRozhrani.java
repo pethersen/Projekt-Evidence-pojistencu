@@ -9,6 +9,8 @@ public class UzivatelskeRozhrani {
     public UzivatelskeRozhrani() {
         evidence = new SpravaPojistencu();
     }
+    
+    //přidá pojištěnce do databáze
     public void pridejPojistence() {
         System.out.println("Zadejte jméno:");
         String jmeno = scanner.nextLine().trim();
